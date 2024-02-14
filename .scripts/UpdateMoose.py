@@ -18,14 +18,14 @@ import filecmp
 def findMoose(path: Path):
     # Loop over all lua files (recursively)
     for f in path.rglob("*.lua"):
-        if f.name.lower().startswith("moose") and not f.name.lower().endswith("msrs"):
+        if f.name.lower().startswith("moose"):
             print(f"Found Moose file as: {f}")
             return f
 
 def copyScripts(path: Path, topath):
     # Loop over all lua files (recursively)
     for f in path.rglob("*.lua"):
-        if not (f.name.lower().startswith("moose") and f.name.lower().endswith("msrs")):
+        if not (f.name.lower().startswith("moose")):
             print(f"Found script: {f}")
             copy(f, topath)
 
