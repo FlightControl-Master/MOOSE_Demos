@@ -10,7 +10,7 @@ uploaded.
 
 from multiprocessing.util import is_exiting
 from pathlib import Path
-from zipfile import ZipFile
+from zipfile import ZipFile, ZIP_DEFLATED
 from shutil  import rmtree, copy
 import argparse
 import filecmp
@@ -80,7 +80,7 @@ def update(f: Path, MooseLua: Path, Temp: Path):
         copy(MooseLua, MooseOld)
 
         # Create new miz file
-        with ZipFile(f, mode='w') as archive:
+        with ZipFile(f, mode='w', compression=ZIP_DEFLATED, allowZip64=False, compresslevel=9) as archive:
             for file_path in Temp.rglob("*"):
                 archive.write(file_path, arcname=file_path.relative_to(Temp))
 
