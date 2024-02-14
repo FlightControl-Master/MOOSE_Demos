@@ -1,0 +1,64 @@
+# This workflow updates the Moose.lua file in all miz files.
+name: Update Moose
+
+# Controls when the workflow will run
+on:
+  # Cron job every day at 2 o'clock.
+  schedule:
+    - cron: '0 2 * * 0'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Manual Run'
+        required: false
+        default: 'The Octoverse'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  # This workflow contains a single job called "Update"
+  Update:
+
+    # Operating system
+    runs-on: ubuntu-latest
+
+    # Set environment variable (not used)
+    env:
+      BRANCH: master
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Say Mission branch name
+      - name: Mission branch
+        run: echo ${GITHUB_REF_NAME}
+
+      # Checks-out repository to ./self
+      - name: Checkout Missions
+        uses: actions/checkout@v3
+        with:
+          path: ./self
+
+      # Install python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' # install the python version needed
+
+      # Run python script to update Moose.lua in all miz files
+      - name: Run UpdateMoose.py
+        run: |
+          cd ./self/.scripts
+          python ./UpdateMoose.py --UpdateMoose
+
+      # Commit changes
+      - name: Commit Changes
+        run: |
+          cd ./self
+          git add *
+          git config --global user.name 'funkyfranky'
+          git config --global user.email 'frank@inter-zone.de'
+          git commit -am "Updated Moose.lua" || echo "No changes to commit"
+          git push
