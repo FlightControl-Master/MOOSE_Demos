@@ -1,3 +1,3 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-python ./UpdateMoose.py ../../MOOSE_INCLUDE/Moose_Include_Static/ ../
+python ./UpdateMoose.py --MoosePath ../../MOOSE_INCLUDE/Moose_Include_Static/ --MissionPath ../ --UpdateMoose

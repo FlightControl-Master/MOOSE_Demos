@@ -106,11 +106,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Blabla.')
 
     # Add argument for Moose path.
-    parser.add_argument('MoosePath', metavar='moose', type=str, help='path to Moose.lua file', default="./")
+    parser.add_argument('--MoosePath', metavar='moose', type=str, help='path to Moose.lua file', default="./")
 
     # Add argument for Moose path.
-    parser.add_argument('MissionPath', metavar='missions', type=str, help='path to missions', default="./")
+    parser.add_argument('--MissionPath', metavar='missions', type=str, help='path to missions', default="./")
 
+    #
+    parser.add_argument('--UpdateMoose', action='store_true')
 
     # Execute the parse_args() method
     args = parser.parse_args()
@@ -120,6 +122,12 @@ if __name__ == '__main__':
 
     # Moose.lua file
     MooseLua=Moose/"Moose_.lua"
+
+    if args.UpdateMoose:
+        print("Will update all Moose_.lua files")
+
+    print(args.MoosePath)
+    print(args.MissionPath)
 
     # Check that Moose.lua exists
     if MooseLua.exists():
