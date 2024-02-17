@@ -1,0 +1,3 @@
+Hello World, this is the Moose simple radio text-to-speech class speaking.
+I'am reading this text file.
+This is insane, right?
