@@ -14,12 +14,12 @@
 -- When the vehicle is driving within the zone, a red smoke is placed at the vehicle location.
 --
 -- # Guide:
---
+-- 
 -- 1. Start the mission.
 -- 2. Observe the zone perimeter. It should be marked with white smoke.
 -- 3. Observe the vehicle. It should place red smoke when driving through the zone.
 
-GroupInside = GROUP:FindByName( "Test Inside Zone" )
+GroupInside =  GROUP:FindByName( "Test Inside Zone" )
 
 ZoneA = ZONE:New( "Zone A" )
 ZoneA:SmokeZone( SMOKECOLOR.White, 90 )
