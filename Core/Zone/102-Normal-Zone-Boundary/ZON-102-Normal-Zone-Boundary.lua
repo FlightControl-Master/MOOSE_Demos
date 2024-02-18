@@ -1,6 +1,6 @@
 ---
--- Author: FlightControl
--- Created: 21.02.2017
+-- Author:       FlightControl
+-- Created:      21.02.2017
 -- Contributors: kaltokri
 -- Modified:     18.02.2024
 --
