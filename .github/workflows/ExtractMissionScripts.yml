@@ -58,6 +58,7 @@ jobs:
       - name: Commit Changes
         run: |
           cd ./self
+          git config --global core.autocrlf input
           git add *
           git config --global user.name 'funkyfranky'
           git config --global user.email 'frank@inter-zone.de'
