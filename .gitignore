@@ -1,5 +1,6 @@
 **/Moose*.lua
 !**/Moose_MSRS.lua
 .build
+.buildpath
 .project
 .settings/org.eclipse.ldt.prefs
