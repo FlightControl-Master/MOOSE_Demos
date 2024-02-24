@@ -3,4 +3,4 @@
 .build
 .buildpath
 .project
-.settings/org.eclipse.ldt.prefs
+.settings
