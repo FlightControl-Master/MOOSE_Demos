@@ -5,7 +5,7 @@
 -- Modified: 23.02.2024
 --
 -- # Documentation:
--- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Core.Zone.html
+-- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Wrapper.Group.html
 --
 -- # Description:
 --
@@ -29,5 +29,5 @@ local Schedule, ScheduleID = SCHEDULER:New( nil,
     local IsAliveRed = GroupRed:IsAlive()
 
     GroupObserver:MessageToAll( "IsAliveBlue=" .. tostring(IsAliveBlue) .. " ----- IsAliveRed=" .. tostring(IsAliveRed), 1 )
-  end, { GroupBlue, GroupRed }, 1, 1 
+  end, { GroupBlue, GroupRed }, 1, 1
 )
