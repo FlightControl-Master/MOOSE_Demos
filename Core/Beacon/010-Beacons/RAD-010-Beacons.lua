@@ -27,22 +27,18 @@
 -- 2. Switch UHF mode to ADF
 -- 3. Needle 1 will move to ~ 150° on HSI.
 -- 4. Switch back to BOTH and frequency 252 to avoid the beacon sound.
--- 5. Set TACAN to A/A REC and channel to 67Y (4 + 63).
+-- 5. Set TACAN to A/A REC and channel to 4Y.
 -- 6. On NMSP activate TCN.
--- 7. HSI should point to the moving aircraft (but this seems to be brocken at the moment).
-
--- Activates tracing if you want to see in the log what BEACON does.
-BASE:TraceClass("BEACON")
-BASE:TraceLevel(3)
+-- 7. HSI should point to the moving aircraft.
 
 -- Create our UNIT objects on which we'll attach a BEACON.
 local Aircraft = UNIT:FindByName("Unit1")
 local LandUnit = UNIT:FindByName("Unit2")
 
 -- Now, let's start with the TACAN Beacon.
--- Note that they are limited to Y band. Notice also that this particular TACAN can be homed on.
+-- This particular TACAN can be homed on.
 local BeaconAircraft = Aircraft:GetBeacon()
-BeaconAircraft:AATACAN(4, "UNIT1", true)
+BeaconAircraft:ActivateTACAN(4, "Y", "UNIT1", true)
 
 -- And let's setup the ground based radio beacon (ADF).
 -- Notice how this beacon will stop in 320 sec (last parameter).
