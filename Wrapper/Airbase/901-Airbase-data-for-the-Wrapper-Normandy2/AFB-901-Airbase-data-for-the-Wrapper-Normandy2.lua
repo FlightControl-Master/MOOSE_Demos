@@ -32,26 +32,32 @@ bases:ForEachAirbase(
     local ab = afb -- Wrapper.Airbase#AIRBASE
     local name = ab:GetName()
     local nice = string.gsub(name,"([%s%c%p]+","_")
-    local text1 = string.format('["%s"] = "%s",',nice,name)
+    local text1 = string.format('  ["%s"] = "%s",',nice,name)
     local text2 = string.format('-- * AIRBASE.Normandy.%s',nice)
-    --MESSAGE:New(text,10,"Airbase"):ToLog()
+    MESSAGE:New(nice, 10):ToLog()
     Airbases1[nice] = text1
     Airbases2[nice] = text2
   end
 )
 
-table.sort(Airbases1, function (a, b)
-  return string.upper(a) < string.upper(b)
-end)
+local tkeys1 = {}
+local tkeys2 = {}
+
+for k in pairs(Airbases1) do table.insert(tkeys1, k) end
+for k in pairs(Airbases2) do table.insert(tkeys2, k) end
+
+table.sort(tkeys1)
+table.sort(tkeys2)
 
 local list1 = "\n"
-for _nice,_text in pairs(Airbases2) do
-  list1 = list1.._text.."\n"
+local list2 = "\n"
+
+for _, k in ipairs(tkeys1) do
+  list1 = list1 .. Airbases1[k] .. "\n"
 end
 
-local list2 = "\n"
-for _nice,_text in pairs(Airbases1) do
-  list2 = list2.._text.."\n"
+for _, k in ipairs(tkeys2) do
+  list2 = list2 .. Airbases2[k] .. "\n"
 end
 
 filename = lfs.writedir() ..[[Missions\airbase-normandy.txt]]
