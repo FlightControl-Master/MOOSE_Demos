@@ -1,17 +1,5 @@
 ---
--- Author: Unknown
--- Created: Unknown
--- Contributors: kaltokri
--- Modified: 01.03.2024
---
--- # Documentation:
--- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Core.SpawnStatic.html
--- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Wrapper.Static.html
--- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Core.Zone.html
--- https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Wrapper.Airbase.html
---
--- # Description:
---
+-- FARPS
 -- This demo shows how to dynamically spawn FARPs into a mission.
 --
 -- We spawn two FARPS in a zone near Batumi.
@@ -24,11 +12,7 @@
 --
 -- As FARPS in DCS are strange creatures, which are hybrids of groups
 -- and statics, the function :InitFARP is necessary.
---
--- # Guide:
---
--- 1. Start the mission and watch the created FARPs.
-
+---
 
 -- Zone near Batumi on land.
 local zoneSpawn1 = ZONE:FindByName( "SpawnZone1" )
