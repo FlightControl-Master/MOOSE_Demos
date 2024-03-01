@@ -23,6 +23,6 @@
 RedStateGroup = GROUP:FindByName( "Red State" )
 GreenStateGroup = GROUP:FindByName( "Green State" )
 
--- St the states.
+-- Set the states.
 RedStateGroup:OptionAlarmStateRed()
 GreenStateGroup:OptionAlarmStateGreen()
